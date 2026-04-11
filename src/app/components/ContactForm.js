@@ -13,7 +13,7 @@ export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
 
-    const telegramUsername = 'murod_korol_karving';
+    const telegramUsername = '+998 94 444 44 45';
     const phoneNumbers = ['+998 (94) 444-44-45', '+998 (99) 714-40-45'];
 
     const handleChange = (e) => {
