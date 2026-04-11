@@ -1,0 +1,295 @@
+.carving-section {
+    background: linear-gradient(135deg, var(--dark-card), var(--dark-bg));
+    position: relative;
+    overflow: hidden;
+}
+
+.carving-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(245, 197, 24, 0.05), transparent 50%);
+    pointer-events: none;
+}
+
+.carving-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.carving-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.carving-info p {
+    color: var(--text-gray);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.carving-stats {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.carving-stat {
+    text-align: center;
+}
+
+.carving-stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.carving-stat-label {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.carving-videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.carving-video-card {
+    background: var(--dark-card);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(245, 197, 24, 0.1);
+}
+
+.carving-video-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245, 197, 24, 0.3);
+}
+
+.carving-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    background: #000;
+}
+
+.carving-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Затемнение */
+.carving-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+    transition: var(--transition);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Анимация загрузки */
+.carving-video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+    font-size: 20px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Кнопка play */
+.carving-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--gold);
+    font-size: 28px;
+    z-index: 5;
+}
+
+.carving-video-play:hover:not(:disabled) {
+    background: var(--gold);
+    color: var(--dark-bg);
+    transform: translate(-50%, -50%) scale(1.1);
+    border-color: var(--gold-light);
+}
+
+.carving-video-play:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Кнопка закрыть видео */
+.carving-video-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: white;
+    font-size: 22px;
+    z-index: 5;
+}
+
+.carving-video-close:hover {
+    background: rgba(220, 53, 69, 0.8);
+    transform: scale(1.1);
+}
+
+/* Индикатор что это видео */
+.carving-video-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--gold);
+    z-index: 3;
+    font-weight: 500;
+    border: 1px solid rgba(245, 197, 24, 0.4);
+}
+
+.carving-video-indicator svg {
+    font-size: 14px;
+}
+
+.carving-video-title {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.carving-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+    .carving-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .carving-info {
+        text-align: center;
+    }
+
+    .carving-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .carving-videos {
+        grid-template-columns: 1fr;
+    }
+
+    .carving-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .carving-video-play {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+    
+    .carving-video-close {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        top: 8px;
+        right: 8px;
+    }
+    
+    .carving-video-indicator {
+        padding: 4px 10px;
+        font-size: 10px;
+        bottom: 8px;
+        left: 8px;
+    }
+    
+    .carving-video-indicator svg {
+        font-size: 12px;
+    }
+    
+    .carving-video-loading {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .loading-spinner {
+        font-size: 16px;
+    }
+}

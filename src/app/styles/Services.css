@@ -1,0 +1,395 @@
+.services-section {
+    background-color: var(--dark-bg);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 35px;
+}
+
+.service-card {
+    background-color: var(--dark-card);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(245, 197, 24, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(245, 197, 24, 0.3);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Видео контейнер */
+.service-video-wrapper {
+    position: relative;
+    width: 100%;
+    background: #000;
+}
+
+.service-video {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    max-height: 550px;
+    overflow: hidden;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+/* Затемнение */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    transition: var(--transition);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.video-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Анимация загрузки */
+.video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+    font-size: 24px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Кнопка play */
+.service-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--gold);
+    font-size: 45px;
+    z-index: 5;
+}
+
+.service-play-btn:hover:not(:disabled) {
+    background: var(--gold);
+    color: var(--dark-bg);
+    transform: translate(-50%, -50%) scale(1.1);
+    border-color: var(--gold-light);
+}
+
+.service-play-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Кнопка закрыть видео */
+.video-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: white;
+    font-size: 28px;
+    z-index: 5;
+}
+
+.video-close-btn:hover {
+    background: rgba(220, 53, 69, 0.8);
+    transform: scale(1.1);
+}
+
+/* Видео индикатор (неактивное состояние) */
+.video-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gold);
+    z-index: 3;
+    font-weight: 500;
+    border: 1px solid rgba(245, 197, 24, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.video-indicator svg {
+    font-size: 18px;
+}
+
+/* Индикатор что видео играет */
+.video-playing-indicator {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #28a745;
+    z-index: 3;
+    font-weight: 500;
+    border: 1px solid rgba(40, 167, 69, 0.4);
+}
+
+.playing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #28a745;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+.service-content {
+    padding: 28px;
+}
+
+.service-icon {
+    font-size: 45px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.service-title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.service-desc {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.service-features li svg {
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.service-link:hover {
+    gap: 12px;
+}
+
+/* Десктоп */
+@media (min-width: 1200px) {
+    .service-video {
+        min-height: 480px;
+        max-height: 600px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+    }
+}
+
+/* Планшет */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .service-video {
+        min-height: 420px;
+        max-height: 500px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+}
+
+/* Мобилка */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .service-video {
+        min-height: 500px;
+        max-height: 650px;
+    }
+    
+    .service-title {
+        font-size: 1.6rem;
+    }
+    
+    .service-play-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 38px;
+    }
+    
+    .video-indicator, .video-playing-indicator {
+        bottom: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .video-close-btn {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 24px;
+    }
+    
+    .video-loading {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .loading-spinner {
+        font-size: 20px;
+    }
+    
+    .service-content {
+        padding: 22px;
+    }
+    
+    .service-icon {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-video {
+        min-height: 550px;
+        max-height: 700px;
+    }
+    
+    .service-play-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 32px;
+    }
+    
+    .service-title {
+        font-size: 1.4rem;
+    }
+    
+    .service-content {
+        padding: 18px;
+    }
+    
+    .service-features li {
+        font-size: 0.85rem;
+    }
+    
+    .video-indicator, .video-playing-indicator {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+    
+    .video-indicator svg {
+        font-size: 14px;
+    }
+}
