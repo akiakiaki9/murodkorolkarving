@@ -75,10 +75,11 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://murod-karving.uz" />
       </head>
       <body>
-        <Header />
+        {/* <Header />
         <main>{children}</main>
         <Footer />
-        {/* <WhatsAppButton /> */}
+        <WhatsAppButton /> */}
+        сайт не доступен
       </body>
     </html>
   );
