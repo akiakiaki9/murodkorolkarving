@@ -66,14 +66,14 @@ export default function Header() {
                     <div className="header-logo-wrapper">
                         <img
                             src="/images/logo.png"
-                            alt="Murod Korol Karving"
+                            alt="Catering murod korol karving"
                             width={60}
                             height={60}
                             className="header-logo-icon"
                             priority
                         />
                     </div>
-                    Murod Korol<span className="gold-text">Karving</span>
+                    Catering murod korol<span className="gold-text">karving</span>
                 </Link>
 
                 <nav className="header-nav">
