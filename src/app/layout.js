@@ -57,7 +57,7 @@ export const metadata = {
   },
   manifest: '/site.webmanifest',
   verification: {
-    google: 'ваш-google-verification-код', // Добавь свой код верификации
+    google: 'znwVu_mU6xaLz1H1aUZpyR8zqUaB_iLbqyGQUQUjgOQ', // Добавь свой код верификации
     yandex: 'ваш-yandex-verification-код', // Добавь свой код верификации
   },
   category: 'event services',
