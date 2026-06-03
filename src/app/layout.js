@@ -3,12 +3,12 @@ import Header from "./components/Header";
 import "./styles/globals.css";
 
 export const metadata = {
-  title: 'Catering murod korol karving | Свадьбы, банкеты, прокат посуды в Бухаре',
+  title: 'Catering murod korol carving | Свадьбы, банкеты, прокат посуды в Бухаре',
   description: '25 лет опыта. Организация свадеб, банкетов, прокат посуды под ключ. Ансамбль, накрытие столов — всё включено в Бухаре.',
-  keywords: 'свадьба Бухара, банкет Бухара, прокат посуды, карвинг, кейтеринг, Catering murod korol karving, организация свадеб, фруктовый карвинг, Бухара свадьба',
-  authors: [{ name: 'Catering murod korol karving' }],
+  keywords: 'свадьба Бухара, банкет Бухара, прокат посуды, карвинг, кейтеринг, Catering murod korol carving, организация свадеб, фруктовый карвинг, Бухара свадьба',
+  authors: [{ name: 'Catering murod korol carving' }],
   creator: 'Akbar Soft',
-  publisher: 'Catering murod korol karving',
+  publisher: 'Catering murod korol carving',
   robots: {
     index: true,
     follow: true,
@@ -21,16 +21,16 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: 'Catering murod korol karving | Свадьбы, банкеты, прокат посуды в Бухаре',
+    title: 'Catering murod korol carving | Свадьбы, банкеты, прокат посуды в Бухаре',
     description: '25 лет опыта. Организация свадеб, банкетов, прокат посуды под ключ. Ансамбль, накрытие столов — всё включено в Бухаре.',
-    url: 'https://murod-karving.uz',
-    siteName: 'Catering murod korol karving',
+    url: 'https://murodkorolkarving.vercel.app/',
+    siteName: 'Catering murod korol carving',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Catering murod korol karving - Свадьбы, банкеты, карвинг в Бухаре',
+        alt: 'Catering murod korol carving - Свадьбы, банкеты, карвинг в Бухаре',
       },
     ],
     locale: 'ru_RU',
@@ -38,7 +38,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Catering murod korol karving | Свадьбы, банкеты, прокат посуды в Бухаре',
+    title: 'Catering murod korol carving | Свадьбы, банкеты, прокат посуды в Бухаре',
     description: '25 лет опыта. Организация свадеб, банкетов, прокат посуды под ключ в Бухаре.',
     images: ['/images/og-image.jpg'],
   },
